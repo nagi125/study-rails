@@ -8,7 +8,10 @@ class BoardsController < ApplicationController
   end
 
   def create
-    Board.create(board_params)
+    board = Board.create(board_params)
+
+    # オブジェクト指定で詳細に飛ばす事ができる
+    redirect_to board
   end
 
   def show
@@ -25,6 +28,13 @@ class BoardsController < ApplicationController
 
     # オブジェクト指定で詳細に飛ばす事ができる
     redirect_to board
+  end
+
+  def destroy
+    board = Board.find(params[:id])
+    board.delete
+
+    redirect_to boards_path
   end
 
   private

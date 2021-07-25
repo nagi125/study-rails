@@ -1,0 +1,2 @@
+class RubyStudyController < ApplicationController
+end

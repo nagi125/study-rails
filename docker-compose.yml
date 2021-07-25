@@ -26,6 +26,8 @@ services:
       - .:/app
     expose:
       - 3000
+    tty: true
+    stdin_open: true
     depends_on:
       - db
 

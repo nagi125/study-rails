@@ -15,6 +15,18 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
   end
 
+  def edit
+    @board = Board.find(params[:id])
+  end
+
+  def update
+    board = Board.find(params[:id])
+    board.update(board_params)
+
+    # オブジェクト指定で詳細に飛ばす事ができる
+    redirect_to board
+  end
+
   private
 
   def board_params
